@@ -1,0 +1,16 @@
+<p>
+  <strong>Name:</strong>
+  <%= comment.user.username %>
+</p>
+
+<p>
+  <strong>Comment:</strong>
+  <%= comment.body %>
+</p>
+<p>
+	<% if user_signed_in? and current_user.admin? %>
+		<%= link_to 'Destroy', [comment.post, comment],
+			method: :delete,
+			data: { confirm: 'Are you sure ya admin?' } %>
+	<%end%>              
+</p>
